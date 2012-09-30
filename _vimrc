@@ -1,6 +1,8 @@
 set nocompatible
 scriptencoding cp932
 set rtp+=~/.vim/
+" Windows‚ÅBundleInstall!‚ªŒø‚©‚È‚¢‘Îô
+set shellxquote=""
 
 filetype off
 
