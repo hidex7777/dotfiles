@@ -1,0 +1,43 @@
+" gVim—p_gvimrc
+
+colorscheme mademoiselle
+
+if has('win32') || has('win64')
+  set guifont=MeiryoKe_Console:h12
+  set linespace=1
+  if has('kaoriya')
+    set ambiwidth=auto
+  endif
+elseif has('mac')
+  set guifont=Monaco:h12
+elseif has('xfontset')
+  set guifontset=a14,r,14,k14
+endif
+
+set columns=100
+set lines=45
+set cmdheight=2
+
+if has('multi_byte_ime') || has('xim')
+  set iminsert=0 imsearch=0
+  if has('xim') && has('GUI_GTK')
+
+  endif
+
+endif
+
+set fileencodings=utf-8,cp932
+set fileformats=unix,dos
+
+set mouse=a
+set nomousefocus
+set mousehide
+
+
+if has('printer')
+  if has('win32')
+    set printfont=MeiryoKe_Console:h11
+  endif
+endif
+
+
