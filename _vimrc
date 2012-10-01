@@ -2,18 +2,15 @@ set nocompatible
 scriptencoding cp932
 set rtp+=~/.vim/
 " Windows‚ÅBundleInstall!‚ªŒø‚©‚È‚¢‘Îô
-set shellxquote=""
+if has("win32") || has("win64")
+	set shellxquote=""
+endif
 
 filetype off
 
 " Vundle
-"if has("win32") || has("win64")
-"set rtp+=~/vimfiles/bundle/vundle/
-"call vundle#rc('~/vimfiles/bundle')
-"else
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-"endif
 
 " From GitHub
 Bundle 'gmarik/vundle'
