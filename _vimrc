@@ -37,6 +37,7 @@ set number
 set ruler
 
 set fileencodings=utf-8,cp932
+set fileencoding=utf-8
 set fileformats=unix,dos
 
 if has("win32") || has("win64")
