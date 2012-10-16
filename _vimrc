@@ -28,7 +28,7 @@ Bundle 'thinca/vim-guicolorscheme'
 Bundle 'project.tar.gz'
 Bundle 'jQuery'
 Bundle 'sudo.vim'
-"Bundle 'CSApprox'
+Bundle 'CSApprox'
 "アンインストールするにはコメントアウトして:BundleClean
 
 filetype plugin indent on
@@ -94,7 +94,11 @@ set wildmenu
 
 set list
 set listchars=tab:>>,eol:^
-colorscheme mademoiselle
+if has('gui')
+  colorscheme mademoiselle_fall
+else
+  colorscheme mademoiselle
+endif
 
 " ステータスバーにフォーマット表示
 if has('iconv')
