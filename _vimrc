@@ -22,10 +22,12 @@ Bundle 'Shougo/unite.vim'
 Bundle 'Shougo/vimfiler'
 Bundle 'Shougo/neocomplcache'
 Bundle 'mattn/zencoding-vim'
+Bundle 'thinca/vim-guicolorscheme'
 
 " From vim-script
 Bundle 'project.tar.gz'
 Bundle 'jQuery'
+Bundle 'sudo.vim'
 "Bundle 'CSApprox'
 "アンインストールするにはコメントアウトして:BundleClean
 
@@ -39,6 +41,7 @@ set ruler
 set fileencodings=utf-8,cp932
 set fileencoding=utf-8
 set fileformats=unix,dos
+set fileformat=unix
 
 if has("win32") || has("win64")
 	set encoding=cp932
@@ -62,6 +65,11 @@ set titlestring=%{expand('%:p')}%m
 set textwidth=0
 set wrap
 set so=4
+" コマンドライン
+set cmdheight=2
+" ステータスライン
+set showcmd
+set laststatus=2
 " Persistent undoを有効化
 set undofile
 set undodir=.
@@ -75,10 +83,13 @@ nnoremap j gj
 nnoremap k gk
 nnoremap <Down> gj
 nnoremap <Up> gk
+" カーソルキーで行末行頭の移動を可能にする
+set whichwrap=b,s,[,],<,>
 
 " コマンドライン補完するときに強化されたものを使う
 set wildmenu
-" ディレクトリパス区切りに/を使えるようにする（Vundleではねられる）
+" ディレクトリパス区切りに/を使えるようにする（Vundleではねられるのでコメント
+" アウト）
 "set shellslash
 
 set list
@@ -111,7 +122,7 @@ let g:neocomplcache_enable_at_startup = 1
 
 let g:user_zen_settings = {
 \   'lang' : 'ja',
-\   'indentation' : '  ',
+\   'indentation' : ' ',
 \   'html' : {
 \     'snippets' : {
 \       'a' : '<a href="|" target="_blank" rel="nofollow">${child}</a>',
@@ -125,6 +136,16 @@ let g:user_zen_settings = {
 \     'extends' : 'html',
 \     'filters' : 'html,c',
 \   },
+\   'css' : {
+\			'snippets' : {
+\				'ms:op' : 'filer:progid::DXImageTransform.Microsoft.Alpha(opacity=50);',
+\				'ms:rgba': 'filter:progid:DXImageTransform.Microsoft.gradient(startColorStr=''#AARRGGBB'',EndColorStr=''#AARRGGBB'');',
+\				'ms:bxs': 'filter:progid:DXImageTransform.Microsoft.Shadow(color=#000000,direction=135,strength=10,enabled=true);',
+\				'ms:txs': 'filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=1, OffY=1, Color=''#AARRGGBB'', Positive=''true'');' ,
+\				'ms:gra': 'filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorStr=''#AARRGGBB'',EndColorStr=''#AARRGGBB'');',
+\				'ms:br': 'progid:DXImageTransform.Microsoft.Blur(PixelRadius=''10'', MakeShadow=''false'', ShadowOpacity=''0.75'');',
+\			},
+\		},
 \}
 
 let g:use_zen_complete_tag = 1
@@ -136,5 +157,8 @@ endif
 
 let g:vimfiler_as_default_explorer = 1
 nnoremap :vf :VimFiler
+
+" \Pで:Project<space>
+nnoremap <Leader>P :Project<Space>
 
 " EOF
