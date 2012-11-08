@@ -23,6 +23,7 @@ Bundle 'Shougo/vimfiler'
 Bundle 'Shougo/neocomplcache'
 Bundle 'mattn/zencoding-vim'
 Bundle 'thinca/vim-guicolorscheme'
+Bundle 'cakebaker/scss-syntax.vim'
 
 " From vim-script
 Bundle 'project.tar.gz'
@@ -161,8 +162,10 @@ endif
 
 let g:vimfiler_as_default_explorer = 1
 nnoremap :vf :VimFiler
+nnoremap :vimfiler :VimFiler
 
 " \P‚Å:Project<space>
 nnoremap <Leader>P :Project<Space>
 
+au BufRead,BufNewFile *.scss set filetype=scss
 " EOF
